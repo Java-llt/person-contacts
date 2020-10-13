@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>分类增加修改</title>
+</head>
+
+<body>
+	<div th:include="head :: html"></div>
+	<form class="layui-form" id="news_form">
+	  <input type="hidden" name="id" th:value="${data.id}"/>
+	  <input type="hidden" name="code" th:value="${data.code}"/>
+	  <input type="hidden" name="pcode" th:value="${type}"/>
+	  <input type="hidden" name="pname" th:value="${data.pname}"/>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">名称</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="name" th:value="${data.name}" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">名称拼音首字母（大写）</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="pinyin" th:value="${data.pinyin}" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <div>
+	      <button type="button" class="layui-btn" id="homepageBtn" style="float: left;">
+		  	<i class="layui-icon">&#xe67c;</i>图标
+		  </button>
+		  <br/>
+		  <img class="layui-upload-img" id="newsPic" th:src="${data.icon}" style="width: 100px;height: 100px;float: left;"/>
+		  <input name="icon" th:value="${data.icon}" type="hidden" id="picUrl" value=""/>
+	    </div>
+	  </div>
+	  <button id="company_save" style="display: none;">提交</button>
+	</form>
+</body>
+<script type="text/javascript" th:src="@{~/static/js/manage/classify-edit.js}"></script>
+</html>

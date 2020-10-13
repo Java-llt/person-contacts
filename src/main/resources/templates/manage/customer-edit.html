@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>客户增加修改</title>
+</head>
+
+<body>
+	<div th:include="head :: html"></div>
+	<form class="layui-form" id="company_form">
+	  <input type="hidden" name="companyId" th:value="${company.companyId}"/>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">客户</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="companyName" th:value="${company.companyName}" lay-verify="required" lay-reqtext="必填项" autocomplete="off" placeholder="请输入客户" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">客户地址</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="companyAddress" th:value="${company.companyAddress}" lay-verify="required" lay-reqtext="客户地址是必填项，岂能为空？" placeholder="请输入" autocomplete="off" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">主营业务</label>
+	    <div class="layui-input-block">
+	      <input id="primaryBusinessName" onclick="openClassify()" type="text" name="primaryBusiness" th:value="${company.primaryBusiness}" class="layui-input"/>
+	      <input id="primaryBusinessCode" type="hidden" name="primaryBusinessCode" th:value="${company.primaryBusinessCode}"/>
+	    </div>
+	  </div>
+	  <!-- <div class="layui-form-item">
+	    <label class="layui-form-label">兼营业务</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="sidelineBusiness" th:value="${company.sidelineBusiness}" autocomplete="off" class="layui-input"/>
+	    </div>
+	  </div> -->
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">客户详情</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="companyDetail" th:value="${company.companyDetail}" autocomplete="off" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">客户电话</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="companyTel" th:value="${company.companyTel}" autocomplete="off" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">电话拨打数</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="telCallNum" th:value="${company.telCallNum}" autocomplete="off" class="layui-input"/>
+	    </div>
+	    <!-- <label class="layui-form-label">公司星级</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="starLevel" th:value="${company.starLevel}" autocomplete="off" class="layui-input"/>
+	    </div> -->
+	  </div>
+	  <!-- <div class="layui-form-item">
+	    <div class="layui-upload-drag" id="test10">
+		  <i class="layui-icon"></i>
+		  <p>点击上传，或将文件拖拽到此处</p>
+		</div>
+	    <div class="layui-upload-drag" id="test10">
+		  <i class="layui-icon"></i>
+		  <p>点击上传，或将文件拖拽到此处</p>
+		</div>
+	  </div> -->
+	  <div class="layui-form-item">
+	    <div style="float: left;">
+	      <button type="button" class="layui-btn" id="homepageBtn" style="float: left;">
+		  	<i class="layui-icon">&#xe67c;</i>首页轮播图
+		  </button>
+		  <img class="layui-upload-img" id="homepageImg" th:src="${company.homepageSlideshow}" style="width: 230px;height: 120px;float: left;"/>
+		  <input name="homepageSlideshow" th:value="${company.homepageSlideshow}" type="hidden" id="homepageSlideshow"/>
+	    </div>
+	    <div style="float: left;">
+	      <button type="button" class="layui-btn" id="listMiniBtn" style="float: left;">
+		  	<i class="layui-icon">&#xe67c;</i>列表小图片
+		  </button>
+		  <img class="layui-upload-img" id="listMiniImg" th:src="${company.listMiniPic}" style="width: 230px;height: 120px;float: left;"/>
+		  <input name="listMiniPic" th:value="${company.listMiniPic}" type="hidden" id="listMiniPic"/>
+	    </div>
+	  </div>
+	  <button id="company_save" style="display: none;">提交</button>
+	</form>
+</body>
+<script type="text/javascript" th:src="@{~/static/js/manage/customer-edit.js}"></script>
+</html>

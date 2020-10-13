@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>新闻增加修改</title>
+</head>
+
+<body>
+	<div th:include="head :: html"></div>
+	<form class="layui-form" id="news_form">
+	  <input type="hidden" name="id" th:value="${news.id}"/>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">标题</label>
+	    <div class="layui-input-block">
+	      <input type="text" name="title" th:value="${news.title}" lay-verify="required" lay-reqtext="必填项" autocomplete="off" placeholder="请输入客户" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">内容</label>
+	    <div class="layui-input-block">
+	      <textarea rows="10" cols="80" id="news-content" name="content"></textarea>
+	      <input type="hidden" id="old-content-val" th:value="${news.content}" class="layui-input"/>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <div>
+	      <button type="button" class="layui-btn" id="homepageBtn" style="float: left;">
+		  	<i class="layui-icon">&#xe67c;</i>图片
+		  </button>
+		  <br/>
+		  <img class="layui-upload-img" id="newsPic" th:src="${news.picUrl}" style="width: 500px;height: 260px;float: left;"/>
+		  <input name="picUrl" th:value="${news.picUrl}" type="hidden" id="picUrl" value=""/>
+	    </div>
+	  </div>
+	  <button id="company_save" style="display: none;">提交</button>
+	</form>
+</body>
+<script type="text/javascript" th:src="@{~/static/js/manage/news-edit.js}"></script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>分类选择控件</title>
+</head>
+
+<body>
+	<div th:include="head :: html"></div>
+	<input id="title" style="width: 280px;float: left;" class="layui-input" value=""/>
+	<button id="search-btn" class="layui-btn" data-type="reload">搜 索</button>
+	<table id="customer-manage" lay-filter="customer-manage"></table>
+</body>
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="save">确定</button>
+    <button class="layui-btn layui-btn-sm" lay-event="concel">取消</button>
+  </div>
+</script>
+<script type="text/javascript" th:src="@{~/static/js/manage/classify-select.js}"></script>
+</html>

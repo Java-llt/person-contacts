@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>新闻管理</title>
+</head>
+
+<body>
+	<div th:include="head :: html"></div>
+	<table id="customer-manage" lay-filter="customer-manage"></table>
+</body>
+<script type="text/javascript" th:src="@{~/static/js/manage/news-manage.js}"></script>
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="add">新增</button>
+    <button class="layui-btn layui-btn-sm" lay-event="update">修改</button>
+    <button class="layui-btn layui-btn-sm" lay-event="publish">发布</button>
+    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+  </div>
+
+</script>
+</html>

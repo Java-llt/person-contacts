@@ -1,0 +1,70 @@
+###ThymeLeaf配置
+spring:
+  thymeleaf:
+    #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
+    mode: HTML5
+    #编码 可不用配置
+    encoding: UTF-8
+    #内容类别,可不用配置
+    content-type: text/html; charset=utf-8
+    #开发配置为false,避免修改模板还要重启服务器
+    cache: false
+    #配置模板路径，默认是templates，可以不用配置
+    prefix: classpath:/templates/
+  mvc:
+    static-path-pattern: /static/**
+  ################################################################
+  #
+  # 配置数据源相关
+  #
+  ################################################################
+  datasource:
+    url: jdbc:mysql://111.229.219.41:3306/newhope-ad
+#    url: jdbc:mysql://127.0.0.1:3306/newhope-ad
+    username: root
+    password: root
+#    password: tladmin
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+  http:
+    multipart:
+      max-file-size: 10Mb
+      max-request-size: 100Mb
+    
+################################################################
+#
+# mybatis配置
+#
+################################################################
+mybatis:
+  # mybatis的pojo类
+  type-aliases-package: ad.pojo
+  mapper-locations: classpath:mapper/*.xml
+  
+#通用Mapper配置
+mapper:
+  mappers: ad.utils.MyMapper
+  not-empty: false
+  identity: MYSQL
+  
+##分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  
+#server:
+#  port: 8080
+#  context-path: /ad
+  
+#minio: 
+# url: http://127.0.0.1:9000
+# access-key: 1589ZQXLS2ZJ8WOS154S
+# secret-key: MBAjsrp2dc0PDBOtHn9aHEjy59FP++qdl24OQhcH
+# bucket-name: asiatrip
+  
