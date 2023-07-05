@@ -19,7 +19,7 @@ spring:
   #
   ################################################################
   datasource:
-    url: jdbc:mysql://111.229.219.41:3306/newhope-ad
+    url: jdbc:mysql://47.102.216.122:3307/ad
 #    url: jdbc:mysql://127.0.0.1:3306/newhope-ad
     username: root
     password: root
